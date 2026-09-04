@@ -24,6 +24,7 @@ const submitButton = document.getElementById("submit-btn");
 const cancelEditButton = document.getElementById("cancel-edit-btn");
 const currentDateElement = document.getElementById("current-date");
 
+const chartEmptyElement = document.getElementById("chart-empty");
 const monthlyExpenseElement = document.getElementById("monthly-expense");
 const monthlyTransactionsElement = document.getElementById("monthly-transactions");
 const topCategoryElement = document.getElementById("top-category");
@@ -201,9 +202,17 @@ function updateExpenseChart() {
 
     if (expenseChart) {
         expenseChart.destroy();
+        expenseChart = null;
     }
 
-    if (categories.length === 0) return;
+    if (categories.length === 0) {
+        chartCanvas.style.display = "none";
+        chartEmptyElement.classList.add("visible");
+        return;
+    }
+
+    chartCanvas.style.display = "block";
+    chartEmptyElement.classList.remove("visible");
 
     expenseChart = new Chart(chartCanvas, {
         type: "doughnut",

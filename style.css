@@ -433,6 +433,39 @@ body {
     max-width: 100%;
 }
 
+.chart-empty {
+    display: none;
+    position: absolute;
+    inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: var(--slate);
+}
+
+.chart-empty.visible {
+    display: flex;
+}
+
+.chart-empty .empty-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    font-size: 18px;
+}
+
+.chart-empty h3 {
+    color: var(--ink);
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.chart-empty p {
+    font-size: 13px;
+}
+
 /* =========================================
    TRANSACTIONS HEADER + CONTROLS
 ========================================= */
@@ -773,6 +806,14 @@ body.dark-mode .transaction-info::before {
 body.dark-mode .empty-icon {
     background: #1e3a5f;
     color: #60a5fa;
+}
+
+body.dark-mode .chart-empty {
+    color: #9aa9bc;
+}
+
+body.dark-mode .chart-empty h3 {
+    color: #f3f6fa;
 }
 
 body.dark-mode .input-error {
